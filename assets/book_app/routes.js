@@ -5,7 +5,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 export const routes = (
   <Router history={ browserHistory }>
     <Route component={ App }>
-      <IndexRoute component={ Home }/>
+      <IndexRoute component={ BookListScreen }/>
       <Route path="users" component={ Users }>
         <Route path="/user/:username" component={ User }/>
       </Route>
