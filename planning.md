@@ -1,6 +1,8 @@
+# (not only books: podcasts, movies, etc)
+
 # Lasting books, remread, lasting reading experience, read-write, IO
 
-The app gets the user to reflect on what they have read, facilitating critical thought and long-term memory retention of the content.
+The app gets the user to reflect on what they have read / watched / listened, facilitating critical thought and long-term memory retention of the content.
 
 ## Key techniques
  - take notes

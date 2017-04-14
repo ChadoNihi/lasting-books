@@ -1,5 +1,5 @@
 import Inferno from 'inferno';
 
-import router from './routes';
+import routes from './routes';
 
 Inferno.render(routes, document.getElementById('root'));

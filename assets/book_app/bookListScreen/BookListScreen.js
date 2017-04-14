@@ -1,1 +1,0 @@
-import Inferno from 'inferno';

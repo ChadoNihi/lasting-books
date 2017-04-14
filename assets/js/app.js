@@ -13,7 +13,7 @@
 // to also remove its path from "config.paths.watched".
 import "phoenix_html";
 
-//import "";
+import "../book_app/index";
 
 // Import local files
 //
