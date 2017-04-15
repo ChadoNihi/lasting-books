@@ -1,1 +1,5 @@
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
+
+export default store = createStore(combineReducers({
+  
+}));

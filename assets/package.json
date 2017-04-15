@@ -8,6 +8,7 @@
   "dependencies": {
     "history": "^4.6.1",
     "inferno": "^3.0.3",
+    "inferno-redux": "^3.0.4",
     "inferno-router": "^3.0.3",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
