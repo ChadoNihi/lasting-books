@@ -8,6 +8,7 @@ The app gets the user to reflect on what they have read / watched / listened, fa
  - take notes
  - give summary
  - author's position
+ - 5 min think timers
 
 ## Definitions
  - *Readable entity* (RE): a book, article, story, or paper
