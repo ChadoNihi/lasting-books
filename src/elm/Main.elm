@@ -1,11 +1,17 @@
-module Main exposing (main)
+module Main exposing (..)
+
+import Navigation as Nav
+import Model
+import Update
+import View
 
 
-main : Program Value Model Msg
+main : Program Never Model Msg
 main =
-    Navigation.programWithFlags (Route.fromLocation >> SetRoute)
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
+    Navigation.program
+        Msgs.NavLocationChange
+        { init = Model.init
+        , view = View.view
+        , update = Update.update
+        , subscriptions = Update.subscriptions
         }
