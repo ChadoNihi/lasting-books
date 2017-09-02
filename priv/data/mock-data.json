@@ -1,0 +1,13 @@
+{
+    "user": {
+        "name": "George"
+    },
+    "item": [
+        {
+            "type": "book",
+            "title": "Hard to be a god",
+            "authors": ["Strugatsky brothers"],
+            "notes and thoughts":
+        }
+    ]
+}
