@@ -1,13 +1,8 @@
 module Update exposing (update)
 
 import Model exposing (Model)
+import Msgs exposing (Msg(..))
 import Navigation as Nav
-
-
-type Msg
-    = LogOut
-    | NavLocationChange Nav.Location
-    | UrlChange String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
