@@ -3,5 +3,8 @@ module Route exposing (..)
 
 type Route
     = AllQuotesRoute
-    | CurrReadingRoute
+    | InProgressItemsRoute
+    | LogOutRoute
+    | NewItemRoute
+    | NotFoundRoute
     | ReviewedRoute

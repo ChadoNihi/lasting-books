@@ -6,13 +6,23 @@ import Types.Types as Types exposing (Flags, PainPoint, Uni(..))
 
 
 type alias Model =
-    { route : Route
+    { currRoute : Route
+    }
+
+
+type User
+    = Anonymous
+    | Authenticated UserInfo
+
+
+type alias UserInfo =
+    { name : String
     }
 
 
 initModel : Model
 initModel =
-    { currRoute = CurrReadingRoute
+    { currRoute = InProgressItemsRoute
     }
 
 

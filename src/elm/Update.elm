@@ -9,4 +9,10 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         LogOut ->
-            ( model, Cmd.none )
+            ( { model | user = Anonymous }, Cmd.none )
+
+        NavLocationChange location ->
+            ( { model | currRoute = parseNavLocation location }, Cmd.none )
+
+        UrlChange url ->
+            ( model, Navigation.newUrl url )
