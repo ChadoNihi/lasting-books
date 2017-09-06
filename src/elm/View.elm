@@ -1,7 +1,7 @@
 module View exposing (view)
 
-import Html exposing (Html, div, a, header, ul, li, text)
-import Html.Attributes exposing (class, role)
+import Html exposing (Html, div, a, header, input, ul, li, text)
+import Html.Attributes exposing (class, for, id, name, role, type_)
 
 
 view : Model -> Html Msg
@@ -23,6 +23,20 @@ appHeader model =
 
 navTabs : Html msg
 navTabs =
-    ul [ class "menu-tabs" role "navigation tabs" ]
-        [ li []
+    ul [ class "menu-tabs", role "navigation tabs" ]
+        [ li [ class "menu-tab-cont" ]
+            [ input [ type_ "radio", id "menu-tab-rad-1", class "menu-tab-rad", name "menu-tabs" ] []
+            , a [ href "#", class "menu-tab" ]
+                [ label [ class "menu-tab-title", role "menu-tab", for "menu-tab-rad-1" ]
+                    [ text "Consider to start" ]
+                ]
+            , div [ class "menu-tab-content" ]
+                []
+            ]
+        , li
+            [ class "tab-cont" ]
+            []
+        , li
+            [ class "tab-cont" ]
+            []
         ]
