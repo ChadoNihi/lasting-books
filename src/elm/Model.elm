@@ -1,8 +1,11 @@
-module Model.Model exposing (Model, init)
+module Model exposing (Model, init)
 
 import Navigation as Nav
 import Routing exposing (Route(..))
-import Types.Types as Types exposing (Flags, PainPoint, Uni(..))
+
+
+type alias Flags =
+    Maybe (List String)
 
 
 type alias Model =

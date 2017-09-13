@@ -8,7 +8,7 @@ import View
 
 main : Program Never Model Msg
 main =
-    Navigation.program
+    Nav.programWithFlags
         Msgs.NavLocationChange
         { init = Model.init
         , view = View.view

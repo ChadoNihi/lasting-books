@@ -1,7 +1,7 @@
 module View exposing (view)
 
 import Html exposing (Html, div, a, header, input, ul, li, text)
-import Html.Attributes exposing (class, for, id, name, role, type_)
+import Html.Attributes exposing (attribute, class, for, id, name, type_)
 
 
 view : Model -> Html Msg
@@ -23,32 +23,32 @@ appHeader model =
 
 navTabs : Html msg
 navTabs =
-    ul [ class "menu-tabs", role "navigation tabs" ]
+    ul [ class "menu-tabs", attribute "role" "navigation tabs" ]
         [ li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-1", class "menu-tab-rad", name "menu-tabs" ] []
             , a [ href "#", class "menu-tab" ]
-                [ label [ class "menu-tab-title", role "menu-tab", for "menu-tab-rad-1" ]
+                [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-1" ]
                     [ text "Consider to start" ]
                 ]
             , div [ class "menu-tab-content" ]
-                []
+                [ text "tab 1" ]
             ]
         , li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-2", class "menu-tab-rad", name "menu-tabs" ] []
             , a [ href "#", class "menu-tab" ]
-                [ label [ class "menu-tab-title", role "menu-tab", for "menu-tab-rad-2" ]
+                [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-2" ]
                     [ text "Consider to start" ]
                 ]
             , div [ class "menu-tab-content" ]
-                []
+                [ text "tab 2" ]
             ]
         , li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-3", class "menu-tab-rad", name "menu-tabs" ] []
             , a [ href "#", class "menu-tab" ]
-                [ label [ class "menu-tab-title", role "menu-tab", for "menu-tab-rad-3" ]
+                [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-3" ]
                     [ text "Consider to start" ]
                 ]
             , div [ class "menu-tab-content" ]
-                []
+                [ text "tab 3" ]
             ]
         ]
