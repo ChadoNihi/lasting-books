@@ -1,3 +1,3 @@
-document.addEvenntListener('DOMContentLoaded', ()=> {
-    Elm.Main.fullscreen();
+document.addEventListener('DOMContentLoaded', ()=> {
+    Elm.Main.fullscreen(null);
 });
