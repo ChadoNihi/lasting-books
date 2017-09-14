@@ -1,12 +1,13 @@
 module Main exposing (..)
 
 import Navigation as Nav
-import Model
+import Msgs exposing (Msg)
+import Model exposing (Flags, Model)
 import Update
 import View
 
 
-main : Program Never Model Msg
+main : Program Flags Model Msg
 main =
     Nav.programWithFlags
         Msgs.NavLocationChange

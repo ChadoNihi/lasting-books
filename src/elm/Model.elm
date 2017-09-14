@@ -1,4 +1,4 @@
-module Model exposing (Model, init)
+module Model exposing (Flags, Model, User(..), init)
 
 import Navigation as Nav
 import Routing exposing (Route(..))
@@ -10,6 +10,7 @@ type alias Flags =
 
 type alias Model =
     { currRoute : Route
+    , user : User
     }
 
 
@@ -26,6 +27,7 @@ type alias UserInfo =
 initModel : Model
 initModel =
     { currRoute = InProgressItemsRoute
+    , user = Anonymous
     }
 
 

@@ -1,7 +1,10 @@
 module View exposing (view)
 
-import Html exposing (Html, div, a, header, input, ul, li, text)
-import Html.Attributes exposing (attribute, class, for, id, name, type_)
+import Html exposing (Html, div, a, header, input, ul, label, li, text)
+import Html.Attributes exposing (attribute, class, for, href, id, name, type_)
+import Model exposing (Model)
+import Routing exposing (Route(..))
+import Msgs exposing (Msg)
 
 
 view : Model -> Html Msg
@@ -10,7 +13,10 @@ view model =
         [ appHeader model
         , case model.currRoute of
             InProgressItemsRoute ->
-                text "Test"
+                text "Main screen"
+
+            _ ->
+                text "Another screen"
         ]
 
 

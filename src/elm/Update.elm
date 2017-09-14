@@ -1,6 +1,6 @@
-module Update exposing (update)
+module Update exposing (subscriptions, update)
 
-import Model exposing (Model)
+import Model exposing (Model, User(..))
 import Msgs exposing (Msg(..))
 import Navigation as Nav
 import Routing exposing (parseNavLocation)

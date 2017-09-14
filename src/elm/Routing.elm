@@ -13,6 +13,7 @@ type Route
     | NewItemRoute
     | NotFoundRoute
     | ReviewedRoute
+    | ViewItemRoute Int
 
 
 parseNavLocation : Nav.Location -> Route
@@ -27,6 +28,8 @@ routeParser =
         , UrlPa.map AllQuotesRoute (UrlPa.s "quotes")
         , UrlPa.map LogInRoute (UrlPa.s "login")
         , UrlPa.map LogOutRoute (UrlPa.s "logout")
-        , UrlPa.map NewItemRoute (UrlPa.s "items" </> "new")
-        , UrlPa.map ReviewedRoute (UrlPa.s "items" </> "reviewed")
+        , UrlPa.map NewItemRoute (UrlPa.s "items" </> UrlPa.s "new")
+        , UrlPa.map NotFoundRoute (UrlPa.s "not-found")
+        , UrlPa.map ReviewedRoute (UrlPa.s "items" </> UrlPa.s "reviewed")
+        , UrlPa.map ViewItemRoute (UrlPa.s "items" </> UrlPa.int)
         ]
