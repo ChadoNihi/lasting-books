@@ -5,6 +5,7 @@ import Html.Attributes exposing (attribute, class, for, href, id, name, type_)
 import Model exposing (Model)
 import Routing exposing (Route(..))
 import Msgs exposing (Msg)
+import UrlParser exposing (NewUrl)
 
 
 view : Model -> Html Msg
@@ -27,34 +28,39 @@ appHeader model =
         ]
 
 
-navTabs : Html msg
+navTabs : Html Msg
 navTabs =
     ul [ class "menu-tabs", attribute "role" "navigation tabs" ]
         [ li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-1", class "menu-tab-rad", name "menu-tabs" ] []
-            , a [ href "#", class "menu-tab" ]
+            , intraLink [ href "#", class "menu-tab" ]
                 [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-1" ]
                     [ text "Consider to start" ]
                 ]
-              -- , div [ class "menu-tab-content" ]
-              --     [ text "tab 1" ]
+            , div [ class "menu-tab-content" ]
+                [ text "tab 1" ]
             ]
         , li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-2", class "menu-tab-rad", name "menu-tabs" ] []
-            , a [ href "#", class "menu-tab" ]
+            , intraLink [ href "#", class "menu-tab" ]
                 [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-2" ]
                     [ text "In progress" ]
                 ]
-              -- , div [ class "menu-tab-content" ]
-              --     [ text "tab 2" ]
+            , div [ class "menu-tab-content" ]
+                [ text "tab 2" ]
             ]
         , li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-3", class "menu-tab-rad", name "menu-tabs" ] []
-            , a [ href "#", class "menu-tab" ]
+            , intraLink [ href "#", class "menu-tab" ]
                 [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-3" ]
                     [ text "Reviewed" ]
                 ]
-              -- , div [ class "menu-tab-content" ]
-              --     [ text "tab 3" ]
+            , div [ class "menu-tab-content" ]
+                [ text "tab 3" ]
             ]
         ]
+
+
+intraLink : Html Msg
+intraLink attrs innerElems url =
+    a (onClickPreventDefault (NewUrl url) :: attr) innerElems
