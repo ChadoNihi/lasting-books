@@ -1,4 +1,4 @@
-module Routing exposing (Route(..), parseNavLocation)
+module Routing exposing (Route(..), menuRoute2Url, parseNavLocation)
 
 import Navigation as Nav
 import UrlParser as UrlPa exposing ((</>))
@@ -12,8 +12,22 @@ type Route
     | LogOutRoute
     | NewItemRoute
     | NotFoundRoute
+    | NotStartedItemsRoute
     | ReviewedRoute
     | ViewItemRoute Int
+
+
+menuRoute2Url : Route -> String
+menuRoute2Url route =
+    case route of
+        NotStartedItemsRoute ->
+            "/not-started"
+
+        InProgressItemsRoute ->
+            "/"
+
+        ReviewedRoute ->
+            "/reviewed"
 
 
 parseNavLocation : Nav.Location -> Route
@@ -30,6 +44,7 @@ routeParser =
         , UrlPa.map LogOutRoute (UrlPa.s "logout")
         , UrlPa.map NewItemRoute (UrlPa.s "items" </> UrlPa.s "new")
         , UrlPa.map NotFoundRoute (UrlPa.s "not-found")
+        , UrlPa.map NotStartedItemsRoute (UrlPa.s "not-started")
         , UrlPa.map ReviewedRoute (UrlPa.s "items" </> UrlPa.s "reviewed")
         , UrlPa.map ViewItemRoute (UrlPa.s "items" </> UrlPa.int)
         ]

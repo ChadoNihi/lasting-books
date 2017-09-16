@@ -3,7 +3,7 @@ module View exposing (view)
 import Html exposing (Html, div, a, header, input, ul, label, li, text)
 import Html.Attributes exposing (attribute, class, for, href, id, name, type_)
 import Model exposing (Model)
-import Routing exposing (Route(..))
+import Routing exposing (Route(..), menuRoute2Url)
 import Msgs exposing (Msg)
 import UrlParser exposing (NewUrl)
 
@@ -33,7 +33,8 @@ navTabs =
     ul [ class "menu-tabs", attribute "role" "navigation tabs" ]
         [ li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-1", class "menu-tab-rad", name "menu-tabs" ] []
-            , intraLink [ href "#", class "menu-tab" ]
+            , intraLink (menuRoute2Url NotStartedItemsRoute)
+                [ class "menu-tab" ]
                 [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-1" ]
                     [ text "Consider to start" ]
                 ]
@@ -42,7 +43,8 @@ navTabs =
             ]
         , li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-2", class "menu-tab-rad", name "menu-tabs" ] []
-            , intraLink [ href "#", class "menu-tab" ]
+            , intraLink (menuRoute2Url InProgressItemsRoute)
+                [ class "menu-tab" ]
                 [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-2" ]
                     [ text "In progress" ]
                 ]
@@ -51,7 +53,8 @@ navTabs =
             ]
         , li [ class "menu-tab-cont" ]
             [ input [ type_ "radio", id "menu-tab-rad-3", class "menu-tab-rad", name "menu-tabs" ] []
-            , intraLink [ href "#", class "menu-tab" ]
+            , intraLink (menuRoute2Url ReviewedRoute)
+                [ class "menu-tab" ]
                 [ label [ class "menu-tab-title", attribute "role" "menu-tab", for "menu-tab-rad-3" ]
                     [ text "Reviewed" ]
                 ]
@@ -62,5 +65,5 @@ navTabs =
 
 
 intraLink : Html Msg
-intraLink attrs innerElems url =
+intraLink url attrs innerElems =
     a (onClickPreventDefault (NewUrl url) :: attr) innerElems
