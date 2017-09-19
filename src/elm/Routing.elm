@@ -23,11 +23,11 @@ menuRoute2Url route =
         NotStartedItemsRoute ->
             "/not-started"
 
-        InProgressItemsRoute ->
-            "/"
-
         ReviewedRoute ->
             "/reviewed"
+
+        _ ->
+            "/"
 
 
 parseNavLocation : Nav.Location -> Route

@@ -3,9 +3,9 @@ module View exposing (view)
 import Html exposing (Html, div, a, header, input, ul, label, li, text)
 import Html.Attributes exposing (attribute, class, for, href, id, name, type_)
 import Model exposing (Model)
-import Routing exposing (Route(..), menuRoute2Url)
 import Msgs exposing (Msg)
-import UrlParser exposing (NewUrl)
+import Routing exposing (Route(..), menuRoute2Url)
+import Utils exposing (onClickPreventDefault)
 
 
 view : Model -> Html Msg
@@ -21,7 +21,7 @@ view model =
         ]
 
 
-appHeader : Model -> Html msg
+appHeader : Model -> Html Msg
 appHeader model =
     header []
         [ navTabs
@@ -64,6 +64,6 @@ navTabs =
         ]
 
 
-intraLink : Html Msg
+intraLink : String -> List (Html.Attribute Msg) -> List (Html Msg) -> Html Msg
 intraLink url attrs innerElems =
-    a (onClickPreventDefault (NewUrl url) :: attr) innerElems
+    a (onClickPreventDefault (Msgs.UrlChange url) :: href url :: attrs) innerElems
