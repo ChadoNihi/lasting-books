@@ -1,7 +1,7 @@
 module Model exposing (Flags, Model, User(..), init)
 
 import Navigation as Nav
-import Routing exposing (Route(..))
+import Routing exposing (Route(..), parseNavLocation)
 
 
 type alias Flags =
@@ -24,14 +24,11 @@ type alias UserInfo =
     }
 
 
-initModel : Model
-initModel =
-    { currRoute = InProgressItemsRoute
-    , user = Anonymous
-    }
-
-
 init : Flags -> Nav.Location -> ( Model, Cmd msg )
 init flags location =
     -- TODO: employ flags
-    ( initModel, Cmd.none )
+    ( { currRoute = parseNavLocation location
+      , user = Anonymous
+      }
+    , Cmd.none
+    )
